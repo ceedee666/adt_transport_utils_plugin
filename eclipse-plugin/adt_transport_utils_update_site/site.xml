@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/adt_transport_utils_feature_0.0.1.jar" id="adt_transport_utils_feature" version="0.0.1"/>
+   <feature url="features/adt_transport_utils_feature_0.0.1.jar" id="adt_transport_utils_feature" version="0.0.1">
+      <category name="ADT Transport Utils"/>
+   </feature>
+   <category-def name="ADT Transport Utils" label="ADT Transport Utils"/>
 </site>
