@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nugget name="Z_ADT_TRANSPORT_UTILS">
+ <CLAS CLSNAME="ZCL_TRANS_UTILS_RES_APP" VERSION="1" LANGU="D" DESCRIPT="Klasse zur BAdI-Impl.: Z_TRANSPORT_UTILS_ADT_DISCOVER" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="CL_ADT_DISC_RES_APP_BASE">
+  <implementing CLSNAME="ZCL_TRANS_UTILS_RES_APP" REFCLSNAME="IF_BADI_INTERFACE" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="1 "/>
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <inheritance CLSNAME="ZCL_TRANS_UTILS_RES_APP" REFCLSNAME="CL_ADT_DISC_RES_APP_BASE" VERSION="1" STATE="1">
+   <redefinition CLSNAME="ZCL_TRANS_UTILS_RES_APP" REFCLSNAME="CL_ADT_DISC_RES_APP_BASE" VERSION="1" MTDNAME="GET_APPLICATION_TITLE" EXPOSURE="1"/>
+   <redefinition CLSNAME="ZCL_TRANS_UTILS_RES_APP" REFCLSNAME="CL_ADT_DISC_RES_APP_BASE" VERSION="1" MTDNAME="IF_ADT_REST_RFC_APPLICATION~GET_STATIC_URI_PATH" EXPOSURE="0"/>
+   <redefinition CLSNAME="ZCL_TRANS_UTILS_RES_APP" REFCLSNAME="CL_ADT_DISC_RES_APP_BASE" VERSION="1" MTDNAME="REGISTER_RESOURCES" EXPOSURE="1"/>
+  </inheritance>
+  <interfaceMethod CLSNAME="ZCL_TRANS_UTILS_RES_APP" CPDNAME="IF_ADT_REST_RFC_APPLICATION~GET_STATIC_URI_PATH">
+   <source>METHOD if_adt_rest_rfc_application~get_static_uri_path.
+    result = zif_trans_utils_constants=&gt;co_create_toc_static_uri_path.
+  ENDMETHOD.                    &quot;if_adt_rest_rfc_application~get_static_uri_path</source>
+  </interfaceMethod>
+  <method CLSNAME="CL_ADT_DISC_RES_APP_BASE" CMPNAME="GET_APPLICATION_TITLE" VERSION="0" EXPOSURE="0" STATE="0" EDITORDER="0 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD get_application_title.
+    result = zif_trans_utils_constants=&gt;co_create_toc_app_title.
+  ENDMETHOD.                    &quot;get_application_title</source>
+  </method>
+  <method CLSNAME="CL_ADT_DISC_RES_APP_BASE" CMPNAME="REGISTER_RESOURCES" VERSION="0" EXPOSURE="0" STATE="0" EDITORDER="0 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD register_resources.
+    registry-&gt;register_discoverable_resource(
+           EXPORTING
+             url             = |/toc/| &amp;&amp; zif_trans_utils_constants=&gt;co_create_toc_term
+             handler_class   = zif_trans_utils_constants=&gt;co_create_toc_handler
+             description     = &apos;Create and optionally release a transport of copies&apos;
+             category_scheme = zif_trans_utils_constants=&gt;co_create_toc_resource_scheme
+             category_term   = zif_trans_utils_constants=&gt;co_create_toc_term ).
+  ENDMETHOD.                    &quot;register_resources</source>
+  </method>
+ </CLAS>
+ <CLAS CLSNAME="ZCL_TRANS_UTILS_RES_DISCOVERY" VERSION="1" LANGU="D" DESCRIPT="Discovery service implementation" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" WITH_UNIT_TESTS="X" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="CL_ADT_RES_APP_BASE">
+  <implementing CLSNAME="ZCL_TRANS_UTILS_RES_DISCOVERY" REFCLSNAME="IF_BADI_INTERFACE" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="1 "/>
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <localTestClasses>*&quot;* use this source file for your ABAP unit test classes</localTestClasses>
+  <inheritance CLSNAME="ZCL_TRANS_UTILS_RES_DISCOVERY" REFCLSNAME="CL_ADT_RES_APP_BASE" VERSION="1" STATE="1">
+   <redefinition CLSNAME="ZCL_TRANS_UTILS_RES_DISCOVERY" REFCLSNAME="CL_ADT_RES_APP_BASE" VERSION="1" MTDNAME="FILL_ROUTER" EXPOSURE="1"/>
+   <redefinition CLSNAME="ZCL_TRANS_UTILS_RES_DISCOVERY" REFCLSNAME="CL_ADT_RES_APP_BASE" VERSION="1" MTDNAME="IF_ADT_REST_RFC_APPLICATION~GET_STATIC_URI_PATH" EXPOSURE="0"/>
+  </inheritance>
+  <interfaceMethod CLSNAME="ZCL_TRANS_UTILS_RES_DISCOVERY" CPDNAME="IF_ADT_REST_RFC_APPLICATION~GET_STATIC_URI_PATH">
+   <source>METHOD if_adt_rest_rfc_application~get_static_uri_path.
+    result = zif_trans_utils_constants=&gt;co_create_toc_static_uri_path.
+  ENDMETHOD.                    &quot;if_adt_rest_rfc_application~get_static_uri_path</source>
+  </interfaceMethod>
+  <method CLSNAME="CL_ADT_RES_APP_BASE" CMPNAME="FILL_ROUTER" VERSION="0" EXPOSURE="0" STATE="0" EDITORDER="0 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD fill_router.
+    router-&gt;attach( iv_template = &apos;/discovery&apos;
+                    iv_handler_class = cl_adt_res_discovery=&gt;co_class_name ).
+  ENDMETHOD.                    &quot;fill_router</source>
+  </method>
+ </CLAS>
+ <CLAS CLSNAME="ZCL_TRANS_UTILS_RES_TOC" VERSION="1" LANGU="D" DESCRIPT="Ressource handler class for /ztransportutils/create_toc" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" WITH_UNIT_TESTS="X" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="CL_ADT_REST_RESOURCE">
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <localTestClasses>*&quot;* use this source file for your ABAP unit test classes</localTestClasses>
+  <inheritance CLSNAME="ZCL_TRANS_UTILS_RES_TOC" REFCLSNAME="CL_ADT_REST_RESOURCE" VERSION="1" STATE="1">
+   <redefinition CLSNAME="ZCL_TRANS_UTILS_RES_TOC" REFCLSNAME="CL_ADT_REST_RESOURCE" VERSION="1" MTDNAME="POST" EXPOSURE="2"/>
+  </inheritance>
+  <method CLSNAME="ZCL_TRANS_UTILS_RES_TOC" CMPNAME="CHECK_AUTHORITY" VERSION="1" LANGU="D" EXPOSURE="0" STATE="1" EDITORDER="5 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" MTDNEWEXC="X" BCMTDCAT="00" BCMTDSYN="0">
+   <exception CLSNAME="ZCL_TRANS_UTILS_RES_TOC" CMPNAME="CHECK_AUTHORITY" SCONAME="ZCX_TRANS_UTILS_EXP" VERSION="1" LANGU="D" MTDTYPE="0" EDITORDER="1 "/>
+   <source>METHOD check_authority.
+    CALL FUNCTION &apos;TR_AUTHORITY_CHECK_TRFUNCTION&apos;
+      EXPORTING
+        iv_trfunction  = &apos;T&apos;
+        iv_activity    = &apos;TRAN&apos;
+      EXCEPTIONS
+        e_no_authority = 1
+        e_invalid_user = 2
+        OTHERS         = 3.
+    IF sy-subrc &lt;&gt; 0.
+      RAISE EXCEPTION TYPE zcx_trans_utils_exp
+        EXPORTING
+          textid = zcx_trans_utils_exp=&gt;cx_not_authorized.
+    ENDIF.
+  ENDMETHOD.                    &quot;check_authority</source>
+  </method>
+  <method CLSNAME="ZCL_TRANS_UTILS_RES_TOC" CMPNAME="COPY_OBJECTS" VERSION="1" LANGU="D" EXPOSURE="0" STATE="1" EDITORDER="7 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" MTDNEWEXC="X" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_TRANS_UTILS_RES_TOC" CMPNAME="COPY_OBJECTS" SCONAME="I_SOURCE_REQUEST" VERSION="1" LANGU="D" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="TRKORR"/>
+   <parameter CLSNAME="ZCL_TRANS_UTILS_RES_TOC" CMPNAME="COPY_OBJECTS" SCONAME="I_TARGET_REQUEST" VERSION="1" LANGU="D" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="TRKORR"/>
+   <exception CLSNAME="ZCL_TRANS_UTILS_RES_TOC" CMPNAME="COPY_OBJECTS" SCONAME="ZCX_TRANS_UTILS_EXP" VERSION="1" LANGU="D" MTDTYPE="0" EDITORDER="1 "/>
+   <source>METHOD copy_objects.
+    DATA: tasks TYPE trwbo_request_headers.
+    FIELD-SYMBOLS: &lt;task&gt; TYPE trwbo_request_header.
+
+    CALL FUNCTION &apos;TR_READ_REQUEST_WITH_TASKS&apos;
+      EXPORTING
+        iv_trkorr          = i_source_request
+      IMPORTING
+        et_request_headers = tasks
+      EXCEPTIONS
+        invalid_input      = 1
+        OTHERS             = 2.
+
+    LOOP AT tasks ASSIGNING &lt;task&gt;.
+      CALL FUNCTION &apos;TR_COPY_COMM&apos;
+        EXPORTING
+          wi_dialog                = abap_false
+          wi_trkorr_from           = &lt;task&gt;-trkorr
+          wi_trkorr_to             = i_target_request
+          wi_without_documentation = abap_false
+        EXCEPTIONS
+          db_access_error          = 1
+          trkorr_from_not_exist    = 2
+          trkorr_to_is_repair      = 3
+          trkorr_to_locked         = 4
+          trkorr_to_not_exist      = 5
+          trkorr_to_released       = 6
+          user_not_owner           = 7
+          no_authorization         = 8
+          wrong_client             = 9
+          wrong_category           = 10
+          object_not_patchable     = 11
+          OTHERS                   = 12.
+      IF sy-subrc &lt;&gt; 0.
+        RAISE EXCEPTION TYPE zcx_trans_utils_exp
+          EXPORTING
+            textid = zcx_trans_utils_exp=&gt;cx_error_adding_objects.
+      ENDIF.
+    ENDLOOP.
+  ENDMETHOD.                    &quot;copy_objects</source>
+  </method>
+  <method CLSNAME="ZCL_TRANS_UTILS_RES_TOC" CMPNAME="CREATE_EMPTY_REQUEST" VERSION="1" LANGU="D" EXPOSURE="0" STATE="1" EDITORDER="6 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" MTDNEWEXC="X" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_TRANS_UTILS_RES_TOC" CMPNAME="CREATE_EMPTY_REQUEST" SCONAME="I_REQUEST_TEXT" VERSION="1" LANGU="D" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="AS4TEXT"/>
+   <parameter CLSNAME="ZCL_TRANS_UTILS_RES_TOC" CMPNAME="CREATE_EMPTY_REQUEST" SCONAME="NEW_TRANSPORT_REQUEST" VERSION="1" LANGU="D" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="1" TYPE="TRKORR"/>
+   <exception CLSNAME="ZCL_TRANS_UTILS_RES_TOC" CMPNAME="CREATE_EMPTY_REQUEST" SCONAME="ZCX_TRANS_UTILS_EXP" VERSION="1" LANGU="D" MTDTYPE="0" EDITORDER="1 "/>
+   <source>METHOD create_empty_request.
+    DATA: request_header TYPE trwbo_request_header,
+          exp TYPE REF TO cx_root.
+    TRY.
+        cl_adt_cts_management=&gt;create_empty_request(
+          EXPORTING
+            iv_type           = &apos;T&apos;
+            iv_text           = i_request_text
+            iv_target         = me-&gt;get_default_transport_target( )
+          IMPORTING
+            es_request_header = request_header ).
+
+        new_transport_request = request_header-trkorr.
+      CATCH cx_adt_cts_create_error INTO exp.
+        RAISE EXCEPTION TYPE zcx_trans_utils_exp
+          EXPORTING
+            textid   = zcx_trans_utils_exp=&gt;cx_error_creating_new_req
+            previous = exp.
+    ENDTRY.
+  ENDMETHOD.                    &quot;create_empty_request</source>
+  </method>
+  <method CLSNAME="ZCL_TRANS_UTILS_RES_TOC" CMPNAME="CREATE_TRANSPORT_OF_COPIES" VERSION="1" LANGU="D" EXPOSURE="0" STATE="1" EDITORDER="4 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" MTDNEWEXC="X" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_TRANS_UTILS_RES_TOC" CMPNAME="CREATE_TRANSPORT_OF_COPIES" SCONAME="I_TRANS_REQUEST" VERSION="1" LANGU="D" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="TRKORR"/>
+   <parameter CLSNAME="ZCL_TRANS_UTILS_RES_TOC" CMPNAME="CREATE_TRANSPORT_OF_COPIES" SCONAME="I_SHOULD_BE_RELEASED" VERSION="1" LANGU="D" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="ABAP_BOOL"/>
+   <exception CLSNAME="ZCL_TRANS_UTILS_RES_TOC" CMPNAME="CREATE_TRANSPORT_OF_COPIES" SCONAME="ZCX_TRANS_UTILS_EXP" VERSION="1" LANGU="D" MTDTYPE="0" EDITORDER="1 "/>
+   <source>METHOD create_transport_of_copies.
+    DATA: request_text TYPE as4text,
+          new_transport_request TYPE trkorr.
+
+    me-&gt;check_authority( ).
+
+    request_text = me-&gt;get_trans_request_text( i_trans_request ).
+    CONCATENATE &apos;Copy - &apos; request_text INTO request_text RESPECTING BLANKS.
+
+    new_transport_request = me-&gt;create_empty_request( request_text ).
+    me-&gt;copy_objects( i_source_request = i_trans_request
+                      i_target_request = new_transport_request ).
+    IF i_should_be_released = abap_true.
+      me-&gt;release_request( new_transport_request ).
+    ENDIF.
+  ENDMETHOD.                    &quot;create_transport_of_copies</source>
+  </method>
+  <method CLSNAME="ZCL_TRANS_UTILS_RES_TOC" CMPNAME="GET_DEFAULT_TRANSPORT_TARGET" VERSION="1" LANGU="D" EXPOSURE="0" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_TRANS_UTILS_RES_TOC" CMPNAME="GET_DEFAULT_TRANSPORT_TARGET" SCONAME="R_DEFAULT_TRANSPORT_TARGET" VERSION="1" LANGU="D" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="1" TYPE="TR_TARGET"/>
+   <source>METHOD get_default_transport_target.
+    CALL FUNCTION&apos;TR_GET_TRANSPORT_TARGET&apos;
+      EXPORTING
+        iv_use_default             = abap_true
+      IMPORTING
+        ev_target                  = r_default_transport_target
+      EXCEPTIONS
+        wrong_call                 = 1
+        invalid_input              = 2
+        cts_initialization_failure = 3
+        OTHERS                     = 4.
+  ENDMETHOD.                    &quot;get_default_transport_target</source>
+  </method>
+  <method CLSNAME="ZCL_TRANS_UTILS_RES_TOC" CMPNAME="GET_SHOULD_BE_RELEASED" VERSION="1" LANGU="D" EXPOSURE="0" STATE="1" EDITORDER="3 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_TRANS_UTILS_RES_TOC" CMPNAME="GET_SHOULD_BE_RELEASED" SCONAME="REQUEST" VERSION="1" LANGU="D" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="3" TYPE="IF_ADT_REST_REQUEST"/>
+   <parameter CLSNAME="ZCL_TRANS_UTILS_RES_TOC" CMPNAME="GET_SHOULD_BE_RELEASED" SCONAME="R_RESULT" VERSION="1" LANGU="D" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="1" TYPE="ABAP_BOOL"/>
+   <source>METHOD get_should_be_released.
+    TRY.
+        request-&gt;get_uri_query_parameter( EXPORTING name  = &apos;Z-ToC-ReleaseImmediately&apos;
+                                          IMPORTING value = r_result ).
+      CATCH cx_adt_rest.
+    ENDTRY.
+  ENDMETHOD.                    &quot;get_should_be_released</source>
+  </method>
+  <method CLSNAME="ZCL_TRANS_UTILS_RES_TOC" CMPNAME="GET_TRANSPORT_REQUEST" VERSION="1" LANGU="D" EXPOSURE="0" STATE="1" EDITORDER="2 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_TRANS_UTILS_RES_TOC" CMPNAME="GET_TRANSPORT_REQUEST" SCONAME="REQUEST" VERSION="1" LANGU="D" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="3" TYPE="IF_ADT_REST_REQUEST"/>
+   <parameter CLSNAME="ZCL_TRANS_UTILS_RES_TOC" CMPNAME="GET_TRANSPORT_REQUEST" SCONAME="R_RESULT" VERSION="1" LANGU="D" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="1" TYPE="TRKORR"/>
+   <source>METHOD get_transport_request.
+    TRY.
+        request-&gt;get_uri_query_parameter( EXPORTING name  = &apos;Z-ToC-RequestID&apos;
+                                          IMPORTING value = r_result ).
+      CATCH cx_adt_rest.
+    ENDTRY.
+  ENDMETHOD.                    &quot;get_transport_request</source>
+  </method>
+  <method CLSNAME="ZCL_TRANS_UTILS_RES_TOC" CMPNAME="GET_TRANS_REQUEST_TEXT" VERSION="1" LANGU="D" EXPOSURE="0" STATE="1" EDITORDER="9 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_TRANS_UTILS_RES_TOC" CMPNAME="GET_TRANS_REQUEST_TEXT" SCONAME="I_TRANSPORT_REQUEST" VERSION="1" LANGU="D" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="TRKORR"/>
+   <parameter CLSNAME="ZCL_TRANS_UTILS_RES_TOC" CMPNAME="GET_TRANS_REQUEST_TEXT" SCONAME="R_TEXT" VERSION="1" LANGU="D" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="1" TYPE="AS4TEXT"/>
+   <source>METHOD get_trans_request_text.
+    DATA: l_e07t     TYPE e07t.
+
+    CALL FUNCTION &apos;TR_READ_COMM&apos;
+      EXPORTING
+        wi_trkorr        = i_transport_request
+        wi_dialog        = abap_false
+        wi_sel_e07t      = abap_true
+      IMPORTING
+        we_e07t          = l_e07t
+      EXCEPTIONS
+        not_exist_e070   = 1
+        no_authorization = 2
+        OTHERS           = 3.
+    IF sy-subrc = 0.
+      r_text = l_e07t-as4text.
+    ENDIF.
+  ENDMETHOD.                    &quot;get_trans_request_text</source>
+  </method>
+  <method CLSNAME="CL_ADT_REST_RESOURCE" CMPNAME="POST" VERSION="0" EXPOSURE="0" STATE="0" EDITORDER="0 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD post.
+    DATA: trans_request TYPE trkorr,
+          should_be_released TYPE abap_bool,
+          success TYPE abap_bool.
+
+    trans_request = me-&gt;get_transport_request( request ).
+    IF trans_request IS INITIAL.
+      response-&gt;set_status( status = cl_rest_status_code=&gt;gc_client_error_bad_request ).
+      RETURN.
+    ENDIF.
+
+    should_be_released = me-&gt;get_should_be_released( request ).
+    TRY.
+        me-&gt;create_transport_of_copies( i_trans_request      = trans_request
+                                        i_should_be_released = should_be_released ).
+        response-&gt;set_status( status = cl_rest_status_code=&gt;gc_success_ok ).
+      CATCH zcx_trans_utils_exp.
+        response-&gt;set_status( status = cl_rest_status_code=&gt;gc_client_error_bad_request ).
+    ENDTRY.
+  ENDMETHOD.                    &quot;post</source>
+  </method>
+  <method CLSNAME="ZCL_TRANS_UTILS_RES_TOC" CMPNAME="RELEASE_REQUEST" VERSION="1" LANGU="D" EXPOSURE="0" STATE="1" EDITORDER="8 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" MTDNEWEXC="X" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_TRANS_UTILS_RES_TOC" CMPNAME="RELEASE_REQUEST" SCONAME="I_TRANSPORT_REQUEST" VERSION="1" LANGU="D" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="TRKORR"/>
+   <exception CLSNAME="ZCL_TRANS_UTILS_RES_TOC" CMPNAME="RELEASE_REQUEST" SCONAME="ZCX_TRANS_UTILS_EXP" VERSION="1" LANGU="D" MTDTYPE="0" EDITORDER="1 "/>
+   <source>METHOD release_request.
+    DATA: cts_api TYPE REF TO if_cts_rest_api,
+          exp TYPE REF TO cx_root.
+
+    cts_api = cl_cts_rest_api_factory=&gt;create_instance( ).
+
+    TRY.
+        cts_api-&gt;release( iv_ignore_locks = abap_true
+                          iv_ignore_objects_check = abap_true
+                          iv_trkorr = i_transport_request ).
+      CATCH cx_cts_rest_api_exception INTO exp.
+        RAISE EXCEPTION TYPE zcx_trans_utils_exp
+          EXPORTING
+            textid = zcx_trans_utils_exp=&gt;cx_error_releasing_request.
+    ENDTRY.
+
+  ENDMETHOD.                    &quot;release_request</source>
+  </method>
+ </CLAS>
+ <CLAS CLSNAME="ZCX_TRANS_UTILS_EXP" VERSION="1" LANGU="D" DESCRIPT="Exception für ADT Transport Utils" CATEGORY="40" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" WITH_UNIT_TESTS="X" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="CX_ADT_REST">
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <localTestClasses>*&quot;* use this source file for your ABAP unit test classes</localTestClasses>
+  <attribute CLSNAME="ZCX_TRANS_UTILS_EXP" CMPNAME="CX_ERROR_ADDING_OBJECTS" VERSION="1" LANGU="D" EXPOSURE="2" STATE="1" EDITORDER="4 " ATTDECLTYP="2" ATTEXPVIRT="0" TYPTYPE="4" SRCROW1="45 " SRCCOLUMN1="6 " SRCROW2="52 " SRCCOLUMN2="35 " LOCKED="X" TYPESRC_LENG="338 " TYPESRC="BEGIN OF cx_error_adding_objects,
+        msgid TYPE symsgid VALUE &apos;ZM_TRANS_UTILS&apos;,
+        msgno TYPE symsgno VALUE &apos;004&apos;,
+        attr1 TYPE scx_attrname VALUE &apos;&apos;,
+        attr2 TYPE scx_attrname VALUE &apos;&apos;,
+        attr3 TYPE scx_attrname VALUE &apos;&apos;,
+        attr4 TYPE scx_attrname VALUE &apos;&apos;,
+      END OF cx_error_adding_objects
+"/>
+  <attribute CLSNAME="ZCX_TRANS_UTILS_EXP" CMPNAME="CX_ERROR_CREATING_NEW_REQ" VERSION="1" LANGU="D" EXPOSURE="2" STATE="1" EDITORDER="3 " ATTDECLTYP="2" ATTEXPVIRT="0" TYPTYPE="4" SRCROW1="34 " SRCCOLUMN1="6 " SRCROW2="41 " SRCCOLUMN2="37 " LOCKED="X" TYPESRC_LENG="342 " TYPESRC="BEGIN OF cx_error_creating_new_req,
+        msgid TYPE symsgid VALUE &apos;ZM_TRANS_UTILS&apos;,
+        msgno TYPE symsgno VALUE &apos;003&apos;,
+        attr1 TYPE scx_attrname VALUE &apos;&apos;,
+        attr2 TYPE scx_attrname VALUE &apos;&apos;,
+        attr3 TYPE scx_attrname VALUE &apos;&apos;,
+        attr4 TYPE scx_attrname VALUE &apos;&apos;,
+      END OF cx_error_creating_new_req
+"/>
+  <attribute CLSNAME="ZCX_TRANS_UTILS_EXP" CMPNAME="CX_ERROR_READING_TRANS_TARGET" VERSION="1" LANGU="D" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="2" ATTEXPVIRT="0" TYPTYPE="4" SRCROW1="14 " SRCCOLUMN1="6 " SRCROW2="21 " SRCCOLUMN2="41 " LOCKED="X" TYPESRC_LENG="350 " TYPESRC="BEGIN OF cx_error_reading_trans_target,
+        msgid TYPE symsgid VALUE &apos;ZM_TRANS_UTILS&apos;,
+        msgno TYPE symsgno VALUE &apos;001&apos;,
+        attr1 TYPE scx_attrname VALUE &apos;&apos;,
+        attr2 TYPE scx_attrname VALUE &apos;&apos;,
+        attr3 TYPE scx_attrname VALUE &apos;&apos;,
+        attr4 TYPE scx_attrname VALUE &apos;&apos;,
+      END OF cx_error_reading_trans_target
+"/>
+  <attribute CLSNAME="ZCX_TRANS_UTILS_EXP" CMPNAME="CX_ERROR_RELEASING_REQUEST" VERSION="1" LANGU="D" EXPOSURE="2" STATE="1" EDITORDER="5 " ATTDECLTYP="2" ATTEXPVIRT="0" TYPTYPE="4" SRCROW1="55 " SRCCOLUMN1="5 " SRCROW2="62 " SRCCOLUMN2="37 " LOCKED="X" TYPESRC_LENG="337 " TYPESRC="BEGIN OF cx_error_releasing_request,
+       msgid TYPE symsgid VALUE &apos;ZM_TRANS_UTILS&apos;,
+       msgno TYPE symsgno VALUE &apos;005&apos;,
+       attr1 TYPE scx_attrname VALUE &apos;&apos;,
+       attr2 TYPE scx_attrname VALUE &apos;&apos;,
+       attr3 TYPE scx_attrname VALUE &apos;&apos;,
+       attr4 TYPE scx_attrname VALUE &apos;&apos;,
+     END OF cx_error_releasing_request
+"/>
+  <attribute CLSNAME="ZCX_TRANS_UTILS_EXP" CMPNAME="CX_NOT_AUTHORIZED" VERSION="1" LANGU="D" EXPOSURE="2" STATE="1" EDITORDER="2 " ATTDECLTYP="2" ATTEXPVIRT="0" TYPTYPE="4" SRCROW1="24 " SRCCOLUMN1="6 " SRCROW2="31 " SRCCOLUMN2="29 " LOCKED="X" TYPESRC_LENG="326 " TYPESRC="BEGIN OF cx_not_authorized,
+        msgid TYPE symsgid VALUE &apos;ZM_TRANS_UTILS&apos;,
+        msgno TYPE symsgno VALUE &apos;002&apos;,
+        attr1 TYPE scx_attrname VALUE &apos;&apos;,
+        attr2 TYPE scx_attrname VALUE &apos;&apos;,
+        attr3 TYPE scx_attrname VALUE &apos;&apos;,
+        attr4 TYPE scx_attrname VALUE &apos;&apos;,
+      END OF cx_not_authorized
+"/>
+  <inheritance CLSNAME="ZCX_TRANS_UTILS_EXP" REFCLSNAME="CX_ADT_REST" VERSION="1" STATE="1">
+   <redefinition CLSNAME="ZCX_TRANS_UTILS_EXP" REFCLSNAME="CX_ADT_REST" VERSION="1" MTDNAME="GET_HTTP_STATUS" EXPOSURE="2"/>
+   <redefinition CLSNAME="ZCX_TRANS_UTILS_EXP" REFCLSNAME="CX_ADT_REST" VERSION="1" MTDNAME="GET_NAMESPACE" EXPOSURE="2"/>
+   <redefinition CLSNAME="ZCX_TRANS_UTILS_EXP" REFCLSNAME="CX_ADT_REST" VERSION="1" MTDNAME="GET_TYPE" EXPOSURE="2"/>
+  </inheritance>
+  <method CLSNAME="CX_ADT_REST" CMPNAME="GET_HTTP_STATUS" VERSION="0" EXPOSURE="0" STATE="0" EDITORDER="0 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD get_http_status.
+
+  ENDMETHOD.                    &quot;get_http_status</source>
+  </method>
+  <method CLSNAME="CX_ADT_REST" CMPNAME="GET_NAMESPACE" VERSION="0" EXPOSURE="0" STATE="0" EDITORDER="0 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD get_namespace.
+
+  ENDMETHOD.                    &quot;get_namespace</source>
+  </method>
+  <method CLSNAME="CX_ADT_REST" CMPNAME="GET_TYPE" VERSION="0" EXPOSURE="0" STATE="0" EDITORDER="0 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD get_type.
+
+  ENDMETHOD.                    &quot;get_type</source>
+  </method>
+ </CLAS>
+ <ENHO enhancement_id="Z_TRANSPORT_UTILS_ADT" shorttext="Transport system utilities for ADT" tooltype_id="BADI_IMPL" spot_name="SADT_REST_RFC_APPLICATION">
+  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+   <asx:values>
+    <IMPLS>
+     <ENH_BADI_IMPL_DATA>
+      <SPOT_NAME>SADT_REST_RFC_APPLICATION</SPOT_NAME>
+      <BADI_NAME>BADI_ADT_DISCOVERY_PROVIDER</BADI_NAME>
+      <IMPL_NAME>Z_TRANSPORT_UTILS_ADT_DISCOVER</IMPL_NAME>
+      <IMPL_CLASS>ZCL_TRANS_UTILS_RES_APP</IMPL_CLASS>
+      <ACTIVE>X</ACTIVE>
+      <IS_DEFAULT/>
+      <FILTER_ROOT/>
+      <FILTER_TREE/>
+      <FILTER_VALUES/>
+      <FILTERS/>
+      <FCODE_EXTENSIONS/>
+      <SCREEN_EXTENSIONS/>
+      <IMPL_SHORTTEXT>Discovery of the transport utilities for ADT rest resource</IMPL_SHORTTEXT>
+      <IMPL_SHORTTEXT_ID>0050568F550A1EE485B5991187C33777</IMPL_SHORTTEXT_ID>
+      <IMPL_LONGTEXT_ID/>
+      <MIG_BADI_IMPL/>
+      <SORTER_DATA/>
+      <IS_EXAMPLE_IMPLEMENTATION/>
+      <LOCKED_IN_CUSTOMIZING/>
+     </ENH_BADI_IMPL_DATA>
+     <ENH_BADI_IMPL_DATA>
+      <SPOT_NAME>SADT_REST_RFC_APPLICATION</SPOT_NAME>
+      <BADI_NAME>BADI_ADT_REST_RFC_APPLICATION</BADI_NAME>
+      <IMPL_NAME>Z_TRANSPORT_UTILS_ADT_DIS_RES</IMPL_NAME>
+      <IMPL_CLASS>ZCL_TRANS_UTILS_RES_DISCOVERY</IMPL_CLASS>
+      <ACTIVE>X</ACTIVE>
+      <IS_DEFAULT/>
+      <FILTER_ROOT>
+       <ENH_BADIIMPL_FILTER_ROOT>
+        <ROOT>1</ROOT>
+        <FILTERS>
+         <ENH_BADIIMPL_FILTER_ID>
+          <FILTER_NAME>STATIC_URI_PATH</FILTER_NAME>
+          <ID>1</ID>
+         </ENH_BADIIMPL_FILTER_ID>
+        </FILTERS>
+       </ENH_BADIIMPL_FILTER_ROOT>
+      </FILTER_ROOT>
+      <FILTER_TREE/>
+      <FILTER_VALUES>
+       <ENH_BADIIMPL_FILTER_VALUE>
+        <ID>1</ID>
+        <FILTER_NAME>STATIC_URI_PATH</FILTER_NAME>
+        <FILTER_TYPE>S</FILTER_TYPE>
+        <COMPARE>=</COMPARE>
+        <FILTER_GENERAL_VALUE1/>
+        <FILTER_GENERAL_VALUE2/>
+        <FILTER_CHAR_VALUE1/>
+        <FILTER_CHAR_VALUE2/>
+        <FILTER_INT_VALUE1>0</FILTER_INT_VALUE1>
+        <FILTER_INT_VALUE2>0</FILTER_INT_VALUE2>
+        <FILTER_NUMERIC_VALUE1>000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</FILTER_NUMERIC_VALUE1>
+        <FILTER_NUMERIC_VALUE2>000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</FILTER_NUMERIC_VALUE2>
+        <FILTER_PACKED_VALUE1>0.0</FILTER_PACKED_VALUE1>
+        <FILTER_PACKED_VALUE2>0.0</FILTER_PACKED_VALUE2>
+        <FILTER_STRING_VALUE1>/ztransportutils/discovery</FILTER_STRING_VALUE1>
+        <FILTER_STRING_VALUE2/>
+        <CHECK_TYPE/>
+        <CHECK_TYPE_IS_DOM/>
+        <CHECK_CLASS>CL_ADT_REST_URI_FILTER_CHECK</CHECK_CLASS>
+        <CHECK_LENGTH>0</CHECK_LENGTH>
+        <CHECK_DECS>0</CHECK_DECS>
+       </ENH_BADIIMPL_FILTER_VALUE>
+      </FILTER_VALUES>
+      <FILTERS>
+       <ENH_BADI_FILTER_IMPL>
+        <DISJ_IDX>1</DISJ_IDX>
+        <CONJ_IDX>1</CONJ_IDX>
+        <FILTER_NAME>STATIC_URI_PATH</FILTER_NAME>
+        <FILTER_TYPE>S</FILTER_TYPE>
+        <COMPARE>=</COMPARE>
+        <FILTER_CHAR_VALUE1/>
+        <FILTER_CHAR_VALUE2/>
+        <FILTER_INT_VALUE1>0</FILTER_INT_VALUE1>
+        <FILTER_INT_VALUE2>0</FILTER_INT_VALUE2>
+        <FILTER_NUMERIC_VALUE1>000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</FILTER_NUMERIC_VALUE1>
+        <FILTER_NUMERIC_VALUE2>000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</FILTER_NUMERIC_VALUE2>
+        <FILTER_PACKED_VALUE1>0.0</FILTER_PACKED_VALUE1>
+        <FILTER_PACKED_VALUE2>0.0</FILTER_PACKED_VALUE2>
+        <FILTER_STRING_VALUE1>/ztransportutils/discovery</FILTER_STRING_VALUE1>
+        <FILTER_STRING_VALUE2/>
+        <CHECK_TYPE/>
+        <CHECK_TYPE_IS_DOM/>
+        <CHECK_CLASS>CL_ADT_REST_URI_FILTER_CHECK</CHECK_CLASS>
+        <CHECK_LENGTH>0</CHECK_LENGTH>
+        <CHECK_DECS>0</CHECK_DECS>
+       </ENH_BADI_FILTER_IMPL>
+      </FILTERS>
+      <FCODE_EXTENSIONS/>
+      <SCREEN_EXTENSIONS/>
+      <IMPL_SHORTTEXT>Registration of the discovery rest resource</IMPL_SHORTTEXT>
+      <IMPL_SHORTTEXT_ID>0050568F550A1EE485B591702E1E5777</IMPL_SHORTTEXT_ID>
+      <IMPL_LONGTEXT_ID/>
+      <MIG_BADI_IMPL/>
+      <SORTER_DATA/>
+      <IS_EXAMPLE_IMPLEMENTATION/>
+      <LOCKED_IN_CUSTOMIZING/>
+     </ENH_BADI_IMPL_DATA>
+     <ENH_BADI_IMPL_DATA>
+      <SPOT_NAME>SADT_REST_RFC_APPLICATION</SPOT_NAME>
+      <BADI_NAME>BADI_ADT_REST_RFC_APPLICATION</BADI_NAME>
+      <IMPL_NAME>Z_TRANSPORT_UTILS_ADT_RES</IMPL_NAME>
+      <IMPL_CLASS>ZCL_TRANS_UTILS_RES_APP</IMPL_CLASS>
+      <ACTIVE>X</ACTIVE>
+      <IS_DEFAULT/>
+      <FILTER_ROOT>
+       <ENH_BADIIMPL_FILTER_ROOT>
+        <ROOT>1</ROOT>
+        <FILTERS>
+         <ENH_BADIIMPL_FILTER_ID>
+          <FILTER_NAME>STATIC_URI_PATH</FILTER_NAME>
+          <ID>1</ID>
+         </ENH_BADIIMPL_FILTER_ID>
+        </FILTERS>
+       </ENH_BADIIMPL_FILTER_ROOT>
+      </FILTER_ROOT>
+      <FILTER_TREE/>
+      <FILTER_VALUES>
+       <ENH_BADIIMPL_FILTER_VALUE>
+        <ID>1</ID>
+        <FILTER_NAME>STATIC_URI_PATH</FILTER_NAME>
+        <FILTER_TYPE>S</FILTER_TYPE>
+        <COMPARE>CP</COMPARE>
+        <FILTER_GENERAL_VALUE1/>
+        <FILTER_GENERAL_VALUE2/>
+        <FILTER_CHAR_VALUE1/>
+        <FILTER_CHAR_VALUE2/>
+        <FILTER_INT_VALUE1>0</FILTER_INT_VALUE1>
+        <FILTER_INT_VALUE2>0</FILTER_INT_VALUE2>
+        <FILTER_NUMERIC_VALUE1>000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</FILTER_NUMERIC_VALUE1>
+        <FILTER_NUMERIC_VALUE2>000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</FILTER_NUMERIC_VALUE2>
+        <FILTER_PACKED_VALUE1>0.0</FILTER_PACKED_VALUE1>
+        <FILTER_PACKED_VALUE2>0.0</FILTER_PACKED_VALUE2>
+        <FILTER_STRING_VALUE1>/ztransportutils/toc/*</FILTER_STRING_VALUE1>
+        <FILTER_STRING_VALUE2/>
+        <CHECK_TYPE/>
+        <CHECK_TYPE_IS_DOM/>
+        <CHECK_CLASS>CL_ADT_REST_URI_FILTER_CHECK</CHECK_CLASS>
+        <CHECK_LENGTH>0</CHECK_LENGTH>
+        <CHECK_DECS>0</CHECK_DECS>
+       </ENH_BADIIMPL_FILTER_VALUE>
+      </FILTER_VALUES>
+      <FILTERS>
+       <ENH_BADI_FILTER_IMPL>
+        <DISJ_IDX>1</DISJ_IDX>
+        <CONJ_IDX>1</CONJ_IDX>
+        <FILTER_NAME>STATIC_URI_PATH</FILTER_NAME>
+        <FILTER_TYPE>S</FILTER_TYPE>
+        <COMPARE>CP</COMPARE>
+        <FILTER_CHAR_VALUE1/>
+        <FILTER_CHAR_VALUE2/>
+        <FILTER_INT_VALUE1>0</FILTER_INT_VALUE1>
+        <FILTER_INT_VALUE2>0</FILTER_INT_VALUE2>
+        <FILTER_NUMERIC_VALUE1>000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</FILTER_NUMERIC_VALUE1>
+        <FILTER_NUMERIC_VALUE2>000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</FILTER_NUMERIC_VALUE2>
+        <FILTER_PACKED_VALUE1>0.0</FILTER_PACKED_VALUE1>
+        <FILTER_PACKED_VALUE2>0.0</FILTER_PACKED_VALUE2>
+        <FILTER_STRING_VALUE1>/ztransportutils/toc/*</FILTER_STRING_VALUE1>
+        <FILTER_STRING_VALUE2/>
+        <CHECK_TYPE/>
+        <CHECK_TYPE_IS_DOM/>
+        <CHECK_CLASS>CL_ADT_REST_URI_FILTER_CHECK</CHECK_CLASS>
+        <CHECK_LENGTH>0</CHECK_LENGTH>
+        <CHECK_DECS>0</CHECK_DECS>
+       </ENH_BADI_FILTER_IMPL>
+      </FILTERS>
+      <FCODE_EXTENSIONS/>
+      <SCREEN_EXTENSIONS/>
+      <IMPL_SHORTTEXT>Registration of the transport utilities for ADT rest resource</IMPL_SHORTTEXT>
+      <IMPL_SHORTTEXT_ID>0050568F550A1EE485B594075B8DD777</IMPL_SHORTTEXT_ID>
+      <IMPL_LONGTEXT_ID/>
+      <MIG_BADI_IMPL/>
+      <SORTER_DATA/>
+      <IS_EXAMPLE_IMPLEMENTATION/>
+      <LOCKED_IN_CUSTOMIZING/>
+     </ENH_BADI_IMPL_DATA>
+    </IMPLS>
+   </asx:values>
+  </asx:abap>
+ </ENHO>
+ <INTF CLSNAME="ZIF_TRANS_UTILS_CONSTANTS" VERSION="1" LANGU="D" DESCRIPT="Constants for ADT transport utilities" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" UNICODE="X">
+  <attribute CLSNAME="ZIF_TRANS_UTILS_CONSTANTS" CMPNAME="CO_CREATE_TOC_APP_TITLE" VERSION="1" LANGU="D" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="2" ATTVALUE="&apos;ZTransportUtils&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZIF_TRANS_UTILS_CONSTANTS" CMPNAME="CO_CREATE_TOC_HANDLER" VERSION="1" LANGU="D" EXPOSURE="2" STATE="1" EDITORDER="2 " ATTDECLTYP="2" ATTVALUE="&apos;ZCL_TRANS_UTILS_RES_TOC&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZIF_TRANS_UTILS_CONSTANTS" CMPNAME="CO_CREATE_TOC_RESOURCE_SCHEME" VERSION="1" LANGU="D" EXPOSURE="2" STATE="1" EDITORDER="6 " ATTDECLTYP="2" ATTVALUE="&apos;http://www.drumm.de/transportutils&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZIF_TRANS_UTILS_CONSTANTS" CMPNAME="CO_CREATE_TOC_STATIC_URI_PATH" VERSION="1" LANGU="D" EXPOSURE="2" STATE="1" EDITORDER="3 " ATTDECLTYP="2" ATTVALUE="&apos;/ztransportutils&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZIF_TRANS_UTILS_CONSTANTS" CMPNAME="CO_CREATE_TOC_TERM" VERSION="1" LANGU="D" EXPOSURE="2" STATE="1" EDITORDER="4 " ATTDECLTYP="2" ATTVALUE="&apos;create_toc&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZIF_TRANS_UTILS_CONSTANTS" CMPNAME="CO_CREATE_TOC_URL" VERSION="1" LANGU="D" EXPOSURE="2" STATE="1" EDITORDER="5 " ATTDECLTYP="2" ATTVALUE="&apos;/ztransportutils/toc/&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+ </INTF>
+ <MSAG ARBGB="ZM_TRANS_UTILS" MASTERLANG="D" RESPUSER="DRUMM" STEXT="Message class for transport utils">
+  <t100 SPRSL="D" ARBGB="ZM_TRANS_UTILS" MSGNR="001" TEXT="The default transport target could not be read."/>
+  <t100 SPRSL="D" ARBGB="ZM_TRANS_UTILS" MSGNR="002" TEXT="Authority check failed."/>
+  <t100 SPRSL="D" ARBGB="ZM_TRANS_UTILS" MSGNR="003" TEXT="An error occured while creating the new transport request."/>
+  <t100 SPRSL="D" ARBGB="ZM_TRANS_UTILS" MSGNR="004" TEXT="An error occured while copying objects to the transport of copies."/>
+  <t100 SPRSL="D" ARBGB="ZM_TRANS_UTILS" MSGNR="005" TEXT="An error occured releasing the transpot of copies."/>
+  <t100t SPRSL="D" ARBGB="ZM_TRANS_UTILS" STEXT="Message class for transport utils"/>
+ </MSAG>
+</nugget>
