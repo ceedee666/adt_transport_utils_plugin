@@ -18,7 +18,7 @@ package de.drumm.adt_transport_utils;
 
 public interface IAdtTransportUtilsConstants {
 	static final String DISCOVERY_URI = "/ztransportutils/discovery";
-	static final String TOC_RESOURCE_SCHEME = "http://www.drumm.de/transportutils";
+	static final String TOC_RESOURCE_SCHEME = "http://www.drumm.de/ztransportutils/toc";
 	static final String TOC_TERM = "create_toc";
 
 	static final String QUERY_PARAMETER_TRANSPORT_REQUEST = "Z-ToC-RequestID";
