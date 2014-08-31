@@ -5,8 +5,10 @@ transport requests.
 
 ##Installation
 The installation of the plug-in consists of two steps:
+
 1. Installing the eclipse plug-in
-1. Installing the ABAP part of the plug-in
+2. Installing the ABAP part of the plug-in
+
 ###Installing the eclipse plug-in
 The easiest way to install the eclipse plug-in is via the update site. The update site is available at the 
 following URL: https://raw.githubusercontent.com/ceedee666/adt_transport_utils_plugin/master/eclipse-plugin/adt_transport_utils_update_site/
